@@ -1,0 +1,53 @@
+{
+  "id": "usage-logger",
+  "name": "Usage Logger",
+  "description": "Logs agent telemetry to an Obsidian vault as a markdown table",
+  "version": "0.1.0",
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "logPath": {
+        "type": "string",
+        "default": "logs/usage.md",
+        "description": "Log file path, relative to the workspace directory."
+      },
+      "timeZone": {
+        "type": "string",
+        "default": "Europe/Berlin",
+        "description": "IANA time zone for timestamps."
+      },
+      "maxPromptLen": {
+        "type": "integer",
+        "default": 300,
+        "minimum": 0,
+        "description": "Truncate logged prompts to this many characters (0 = no limit)."
+      },
+      "maxTrackedRuns": {
+        "type": "integer",
+        "default": 200,
+        "minimum": 1,
+        "description": "Maximum in-flight turns held in memory."
+      },
+      "maxPendingCalls": {
+        "type": "integer",
+        "default": 500,
+        "minimum": 1,
+        "description": "Maximum staged tool calls held in memory."
+      },
+      "flushDelayMs": {
+        "type": "integer",
+        "default": 750,
+        "minimum": 0,
+        "description": "Delay between agent_end and writing the row, so late llm_output events are included."
+      },
+      "inboundClaimWindowMs": {
+        "type": "integer",
+        "default": 120000,
+        "minimum": 0,
+        "description": "How long a group-chat inbound message stays claimable by a later agent run."
+      }
+    }
+  }
+}
+

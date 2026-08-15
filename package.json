@@ -1,0 +1,36 @@
+{
+  "name": "openclaw-plugin-usage-logger",
+  "version": "0.1.0",
+  "description": "Logs OpenClaw agent telemetry to an Obsidian vault as a markdown table",
+  "type": "module",
+  "license": "MIT",
+  "files": [
+    "dist",
+    "openclaw.plugin.json",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "typebox": "^1.1.38"
+  },
+  "peerDependencies": {
+    "openclaw": ">=2026.5.17"
+  },
+  "devDependencies": {
+    "@types/node": "^26.2.0",
+    "openclaw": "2026.6.11",
+    "typescript": "^5.6.0",
+    "vitest": "^4.1.10"
+  },
+  "openclaw": {
+    "extensions": [
+      "./src/index.ts"
+    ],
+    "runtimeExtensions": [
+      "./dist/index.js"
+    ]
+  }
+}
